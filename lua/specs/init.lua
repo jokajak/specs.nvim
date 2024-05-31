@@ -98,7 +98,7 @@ function M.show_specs(popup)
                 vim.api.nvim_win_set_option(win_id, "winblend", bl)
             end
             if dm ~= nil then
-                config["col"][false] = dm[2]
+                config.col = dm[2]
                 vim.api.nvim_win_set_config(win_id, config)
                 vim.api.nvim_win_set_width(win_id, dm[1])
             end
@@ -128,7 +128,6 @@ function M.sinus_fader(blend, cnt)
   else return nil end
 end
 
-
 --[[ ▁▁▁▁▂▂▂▃▃▃▄▄▅▆▇ ]]--
 
 function M.exp_fader(blend, cnt)
@@ -136,7 +135,6 @@ function M.exp_fader(blend, cnt)
         return blend + math.floor(math.exp(cnt/10))
     else return nil end
 end
-
 
 --[[ ▁▂▃▄▅▆▇█▇▆▅▄▃▂▁ ]]--
 
@@ -154,7 +152,6 @@ function M.empty_fader(_, _)
     return nil
 end
 
-
 --[[ ░░▒▒▓█████▓▒▒░░ ]]--
 
 function M.shrink_resizer(width, ccol, cnt)
@@ -163,7 +160,6 @@ function M.shrink_resizer(width, ccol, cnt)
     else return nil end
 end
 
-
 --[[ ████▓▓▓▒▒▒▒░░░░ ]]--
 
 function M.slide_resizer(width, ccol, cnt)
@@ -171,7 +167,6 @@ function M.slide_resizer(width, ccol, cnt)
         return {width-cnt, ccol}
     else return nil end
 end
-
 
 --[[ ███████████████ ]]--
 
